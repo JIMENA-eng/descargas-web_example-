@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Enlace de Descarga</title>
+  <meta charset="UTF-8">
+  <title>{{ video.title }}</title>
 </head>
 <body>
-  <h3>✅ Enlace de descarga generado</h3>
-  <p>Haz clic para descargar el archivo:</p>
-  <iframe src="{{ enlace }}" width="100%" height="100" frameborder="0"></iframe>
-  <br><br>
-  <a href="{{ url_for('index') }}">⬅️ Volver al inicio</a>
+  <h2>🎥 {{ video.title }}</h2>
+  <img src="{{ video.thumbnail }}" width="320">
+
+  <h3>Formatos disponibles:</h3>
+  <ul>
+    {% for formato in video.formats %}
+      {% if formato.url %}
+        <li>
+          <a href="{{ formato.url }}" target="_blank">Descargar {{ formato.qualityLabel }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <br>
+  <a href="/">⬅ Volver al inicio</a>
 </body>
 </html>
