@@ -1,31 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Descargador YouTube</title>
+  <meta charset="UTF-8">
+  <title>Descargador de YouTube</title>
 </head>
 <body>
-  <h2>🎥 Descargador de YouTube (MP3/MP4)</h2>
+  <h2>🎬 Descargar video de YouTube</h2>
   <form method="POST">
-    <label>URL del video:</label><br>
-    <input type="text" name="url" placeholder="https://youtu.be/..." size="50"><br><br>
-    <label>Formato:</label>
-    <select name="formato">
-      <option value="mp4">MP4 (Video)</option>
-      <option value="mp3">MP3 (Audio)</option>
-    </select><br><br>
-    <button type="submit">Descargar</button>
+    <input type="text" name="url" placeholder="Pega la URL de YouTube aquí" size="60" required>
+    <button type="submit">Buscar</button>
   </form>
-
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <ul style="color:red;">
-        {% for msg in messages %}
-          <li>{{ msg }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  {% endwith %}
 </body>
 </html>
+
 
 
