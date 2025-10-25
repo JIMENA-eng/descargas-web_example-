@@ -1,69 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Descargador YouTube</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        form {
-            background-color: #1e1e1e;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 0 15px #333;
-            width: 350px;
-            text-align: center;
-        }
-        input, select, button {
-            margin: 10px 0;
-            padding: 10px;
-            width: 90%;
-            border-radius: 8px;
-            border: none;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .flash {
-            margin-top: 15px;
-            color: #ffcc00;
-        }
-    </style>
+  <title>Descargador YouTube</title>
 </head>
 <body>
-    <h1>🎬 Descargador de YouTube</h1>
-    <form method="POST">
-        <input type="text" name="url" placeholder="Pega la URL de YouTube" required>
-        <select name="formato">
-            <option value="mp4">🎥 MP4 (Video)</option>
-            <option value="mp3">🎧 MP3 (Audio)</option>
-        </select>
-        <button type="submit">Descargar</button>
-    </form>
+  <h2>🎥 Descargador de YouTube (MP3/MP4)</h2>
+  <form method="POST">
+    <label>URL del video:</label><br>
+    <input type="text" name="url" placeholder="https://youtu.be/..." size="50"><br><br>
+    <label>Formato:</label>
+    <select name="formato">
+      <option value="mp4">MP4 (Video)</option>
+      <option value="mp3">MP3 (Audio)</option>
+    </select><br><br>
+    <button type="submit">Descargar</button>
+  </form>
 
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <div class="flash">
-          {% for message in messages %}
-            <p>{{ message }}</p>
-          {% endfor %}
-        </div>
-      {% endif %}
-    {% endwith %}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul style="color:red;">
+        {% for msg in messages %}
+          <li>{{ msg }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
 </body>
 </html>
+
+
